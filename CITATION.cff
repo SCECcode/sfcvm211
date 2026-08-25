@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "SCEC SCEC"
+  given-names: ""
+keywords: UCVM, research
+license: BSD-3-Clause
+repository-code: "https://github.com/SCECcode/sfcvm.git"
+title: "SF Community Velocity Model (sfcvm)"
+version: 1.0
+doi: 
+date-released: 2023-02-15
+repository-code: "https://github.com/SCECcode/sfcvm.git"
+contact:
+  - email: software@scec.org
+    name: "The SCEC Software project sfcvm"
+references:

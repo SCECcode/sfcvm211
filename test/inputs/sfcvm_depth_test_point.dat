@@ -1,0 +1,9 @@
+# for sfcvm
+# ucvm surface   1.493 
+# sfcvm surface  1.0467
+longitude = -121.941
+latitude = 37.455
+depth = 3000.0
+vs = 3230.609450
+vp = 5370.004057
+rho = 2648.761719
