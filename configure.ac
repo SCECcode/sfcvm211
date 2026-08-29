@@ -93,7 +93,7 @@ if test "$install_hdf5" = yes ; then
   dnl proj (required by hdf5)
   if test "$install_proj" = yes ; then
     PROJ_INCLUDES="-I$prefix/include"
-    PROJ_LDFLAGS="-L$prefix/lib"
+    PROJ_LDFLAGS="-L$prefix/lib -lproj -lpthread"
     PROJ_INC="$prefix/include"
     PROJ_LIB="$prefix/lib"
   else
@@ -108,7 +108,7 @@ if test "$install_hdf5" = yes ; then
     PROJ_INC="$with_proj_incdir"
   fi
   if test "$with_proj_libdir" != no; then
-    PROJ_LDFLAGS="-L$with_proj_libdir"
+    PROJ_LDFLAGS="-L$with_proj_libdir -lproj -lpthread"
     PROJ_LIB="$with_proj_libdir"
   fi
   AC_SUBST(PROJ_INCLUDES)
@@ -118,7 +118,8 @@ if test "$install_hdf5" = yes ; then
 
   HDF5_INCLUDES="-I$prefix/include"
   HDF5_INC="$prefix/include"
-  HDF5_LDFLAGS="-L$prefix/lib"
+  HDF5_LDFLAGS="-L$prefix/lib -lhdf5"
+
   HDF5_LIB="$prefix/lib"
 else
   HDF5_INCLUDES=
@@ -142,7 +143,7 @@ AC_SUBST(HDF5_LIB)
 
 
 if test "$install_openssl" = yes ; then
-  OPENSSL_LDFLAGS="-lssl -lcrytpo"
+  OPENSSL_LDFLAGS="-L$prefix/lib -lssl -lcrytpo"
 else
   OPENSSL_LDFLAGS=
 fi
