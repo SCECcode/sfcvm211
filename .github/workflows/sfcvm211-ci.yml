@@ -1,0 +1,28 @@
+name: sfcvm211-ci
+
+on:
+  push:
+    branches: [ foo ]
+
+jobs:
+  sfcvm211-build-standalone-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7]
+    steps:
+    - name: set UCVM_SRC_PATH 
+      run: echo "UCVM_SRC_PATH=$RUNNER_WORKSPACE/ucvm" >> $GITHUB_ENV
+    - name: set UCVM_INSTALL_PATH 
+      run: echo "UCVM_INSTALL_PATH=$RUNNER_WORKSPACE/target" >> $GITHUB_ENV
+    - name: checkout sfcvm211 main
+      uses: actions/checkout@v4
+      with: 
+        ref: main 
+    - name: build sfcvm211
+      run: ./.github/scripts/sfcvm211-build.sh
+      shell: bash
+    - name: test sfcvm211 standalone
+      run: ./.github/scripts/sfcvm211-test-standalone.sh
+      shell: bash
+
