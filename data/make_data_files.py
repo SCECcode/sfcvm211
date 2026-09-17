@@ -9,6 +9,7 @@ import sys
 import shutil
 import subprocess
 import json
+import os
 
 model = "SFCVM211"
 
